@@ -1,0 +1,411 @@
+<!DOCTYPE HTML>
+<html>
+  <head>
+    <style type="text/css">
+      .container{width:100%;}
+      body{
+        background-color: #ededed;
+      }
+      div{
+        float: left;
+        padding:0px 2px;
+      }
+      div[id^="colorColumn_"]{
+        width:50px;
+        height:15px;
+        margin:5px;
+        padding:10px;
+      }
+      div[class^="col-"]{
+        float:left;
+        margin:15px 0px;
+      }
+      div[id^="sf-"]{
+        margin:4px 1px;
+        border:1px solid #000000;
+        vertical-align: middle;
+        text-align: center;
+        width:200px;
+        height:30px;
+        font-family:arial;
+        font-size:12pt;
+        line-height: 30px;
+      }
+      .scheme{
+        border-top: 5px solid #000000;
+      }
+      h2.scheme{
+        line-height: 1.5em;
+        font-family: Arial;
+        font-size: 18pt;
+        text-transform: uppercase;
+      }
+
+      .mainTitle{
+        font-family:arial;
+        font-size:22pt;
+        color:#666366;
+        padding:0px 0px 10px 44px;
+      }
+      .scheme{}
+      .superScript{
+        font-size:6pt;
+        line-height: 6pt;
+        vertical-align: top;
+      }
+      .explanationText{
+        width:55%;
+        font-family:"Times New Roman";
+        font-size:14pt;
+        line-height:1.25em;
+        padding-left:65px;
+      }
+      #footerSection{}
+      #footerLinks{
+        list-style-type: none;
+        width:75%;
+        margin:10px auto;}
+      #footerLinks li{
+        display:inline-block;
+        margin:10px 0px;
+        width: 19%;
+      }
+      #footerLinks a{
+        color:#000000;
+        font-size: 14pt;
+        text-decoration:underline;
+      }
+      #footerLinks a:link{
+        color:#000000;
+        font-size: 14pt;
+        text-decoration:underline;
+      }
+      #footerLinks a:visited{
+        color:#000000;
+        font-size: 14pt;
+        text-decoration:underline;
+      }
+      #footerLinks a:hover{
+        color:#4994cd;
+        font-size: 14pt;
+        text-decoration:none;
+      }
+      #footerLinks a:active{
+        color:#000000;
+        font-size: 14pt;
+        text-decoration:underline;
+      }
+      /*
+      .gray, .sys{
+        margin-top:.5px !important;
+        margin-bottom:.5px !important;
+        padding-top:.5px !important;
+        padding-bottom:.5px !important;
+      }
+      .gray > :first-child, .sys > :first-child{
+        margin-top:7px !important;
+      }
+
+      .gray > :last-child, .sys > :last-child{
+        margin-bottom:7px !important;
+      }*/
+
+      .col-1-1{width:99%;}
+      .col-1-2{width:49%;}
+      .col-1-3{width:32.33%;}
+      .col-1-4{width:24%;}
+      .col-1-5{width:19%;}
+      .col-1-6{width:15.6%;}
+
+      .w{color:#ffffff;}
+      .b{color:#0000000;}
+
+      #sf-red{background-color:#cc0717;}
+
+      
+      #sf-gray_l4{background-color:#d3d0d1;}
+      #sf-gray_l3{background-color:#b3afb1;}
+      #sf-gray_l2{background-color:#979294;}
+      #sf-gray_l1{background-color:#7d797b;}
+      #sf-gray{background-color:#666366;}
+      #sf-gray_d1{background-color:#646163;}
+      #sf-gray_d2{background-color:#5b595b;}
+      #sf-gray_d3{background-color:#484849;}
+      #sf-gray_a1{background-color:#666366;}
+      #sf-gray_a2{background-color:#666366;}
+      #sf-gray_a3{background-color:#666366;}
+      #sf-gray_a4{background-color:#4f4c4c;}
+
+      #sf-purple_l4{background-color:#cec5de;}
+      #sf-purple_l3{background-color:#a997c2;}
+      #sf-purple_l2{background-color:#8971ab;}
+      #sf-purple_l1{background-color:#6e4f98;}
+      #sf-purple{background-color:#542988;}
+      #sf-purple_d1{background-color:#542988;}
+      #sf-purple_d2{background-color:#542988;}
+      #sf-purple_d3{background-color:#542988;}
+      #sf-purple_a1{background-color:#542988;}
+      #sf-purple_a2{background-color:#542988;}
+      #sf-purple_a3{background-color:#542988;}
+      #sf-purple_a4{background-color:#542988;}
+
+      #sf-orange_l5{background-color:#f3901d;}
+      #sf-orange_l4{background-color:#f3901d;}
+      #sf-orange_l3{background-color:#f3901d;}
+      #sf-orange_l2{background-color:#f3901d;}
+      #sf-orange_l1{background-color:#f3901d;}
+      #sf-orange{background-color:#f3901d;}
+      #sf-orange_d1{background-color:#f3901d;}
+      #sf-orange_d2{background-color:#f3901d;}
+      #sf-orange_d3{background-color:#f3901d;}
+      #sf-orange_a1{background-color:#f3901d;}
+      #sf-orange_a2{background-color:#f3901d;}
+      #sf-orange_a3{background-color:#f3901d;}
+      #sf-orange_a4{background-color:#f3901d;}
+
+      #sf-green_l5{background-color:#0d9e49;}
+      #sf-green_l4{background-color:#0d9e49;}
+      #sf-green_l3{background-color:#0d9e49;}
+      #sf-green_l2{background-color:#0d9e49;}
+      #sf-green_l1{background-color:#0d9e49;}
+      #sf-green{background-color:#0d9e49;}
+      #sf-green_d1{background-color:#0d9e49;}
+      #sf-green_d2{background-color:#0d9e49;}
+      #sf-green_d3{background-color:#0d9e49;}
+      #sf-green_a1{background-color:#0d9e49;}
+      #sf-green_a2{background-color:#0d9e49;}
+      #sf-green_a3{background-color:#0d9e49;}
+      #sf-green_a4{background-color:#0d9e49;}
+
+      #sf-yellow_l5{background-color:#fdb924;}
+      #sf-yellow_l4{background-color:#fdb924;}
+      #sf-yellow_l3{background-color:#fdb924;}
+      #sf-yellow_l2{background-color:#fdb924;}
+      #sf-yellow_l1{background-color:#fdb924;}
+      #sf-yellow{background-color:#fdb924;}
+      #sf-yellow_d1{background-color:#fdb924;}
+      #sf-yellow_d2{background-color:#fdb924;}
+      #sf-yellow_d3{background-color:#fdb924;}
+      #sf-yellow_a1{background-color:#fdb924;}
+      #sf-yellow_a2{background-color:#fdb924;}
+      #sf-yellow_a3{background-color:#fdb924;}
+      #sf-yellow_a4{background-color:#fdb924;}
+
+      #sf-blue_l5{background-color:#4994cd;}
+      #sf-blue_l4{background-color:#4994cd;}
+      #sf-blue_l3{background-color:#4994cd;}
+      #sf-blue_l2{background-color:#4994cd;}
+      #sf-blue_l1{background-color:#4994cd;}
+      #sf-blue{background-color:#4994cd;}
+      #sf-blue_d1{background-color:#4994cd;}
+      #sf-blue_d2{background-color:#4994cd;}
+      #sf-blue_d3{background-color:#4994cd;}
+      #sf-blue_a1{background-color:#4994cd;}
+      #sf-blue_a2{background-color:#4994cd;}
+      #sf-blue_a3{background-color:#4994cd;}
+      #sf-blue_a4{background-color:#4994cd;}
+
+      #sf-mediumGray{background-color:#adb9c0;}
+      #sf-grayViolet{background-color:#a48da7}
+      #sf-brown{background-color:#c59468;}
+      #sf-coolGreen{background-color:#4ba5a7;}
+      #sf-ochre{background-color:#c2a268;}
+      #sf-grayBeige{background-color:#a89988;}
+
+
+      #sf-gray1{background-color:#ededed;}
+      #sf-gray2{background-color:#dcdcdc;}
+      #sf-gray3{background-color:#c5c5c5;}
+      #sf-gray4{background-color:#ababab;}
+      #sf-gray5{background-color:#3f3f3f;}
+
+      #sf-white{background-color:#ffffff;}
+      #sf-black{background-color:#000000;}
+
+      #sf-sysGreen{background-color:#0eb034;}
+      #sf-sysRed{background-color:#a20102;}
+      #sf-sysDarkBlue{background-color:#003a65;}
+      #sf-sysBlue{background-color:#0a70bc;}
+      #sf-sysYellow1{background-color:#fdf8d7;}
+      #sf-sysYellow2{background-color:#fff001;}
+    </style>
+  </head>
+<body>
+
+  <div class="container">
+  <div class="col-1-1">
+  <h1 class="mainTitle">.farmize Color Palette</h1>
+  <p class="explanationText">Using the State Farm<span class="superScript">&reg;</span> color palette, basic branding rules can be applied to achieve great consistent results.  Each of these colors is defined with a base color class and an optional lighten, darken, and accent class.</p>
+  </div>
+    <div class="col-1-1">
+      <h2 class="scheme">Primary Color</h2>
+        <div class="mainColor w" id="sf-red">sf-red: #cc0717</div>
+    </div>
+    <div class="col-1-1">
+      <h2 class="scheme"> Secondary Colors</h2>
+      <!--
+sf-gray Secondary
+sf-purple Secondary
+sf-orange Secondary
+sf-green Secondary
+sf-yellow Secondary
+sf-blue Secondary
+sf-mediumGray Secondary
+sf-grayViolet Secondary
+sf-brown Secondary
+sf-coolGreen Secondary
+sf-ochre Secondary
+sf-grayBeige Secondary
+
+accent-1
+accent-2
+accent-3
+accent-4
+darken-1
+darken-2
+darken-3
+darken-4
+lighten-1
+lighten-2
+lighten-3
+lighten-4
+lighten-5
+
+-->
+        <div class="col-1-6">
+          <div class="mainColor" id="sf-gray_l4">sf-gray Lighten4: #666366</div>
+          <div class="mainColor" id="sf-gray_l3">sf-gray Lighten3: #b3afb1</div>
+          <div class="mainColor w" id="sf-gray_l2">sf-gray Lighten2: #979294</div>
+          <div class="mainColor w" id="sf-gray_l1">sf-gray Lighten1: #7d797b</div>
+          <div class="mainColor w" id="sf-gray">sf-gray: #666366</div>
+          <div class="mainColor w" id="sf-gray_d1">sf-gray Darken1: #646163</div>
+          <div class="mainColor w" id="sf-gray_d2">sf-gray Darken2: #5b595b</div>
+          <div class="mainColor w" id="sf-gray_d3">sf-gray Darken3: #484849</div>
+          <div class="mainColor w" id="sf-gray_a1">sf-gray Accent1: #666366</div>
+          <div class="mainColor w" id="sf-gray_a2">sf-gray Accent2: #666366</div>
+          <div class="mainColor w" id="sf-gray_a3">sf-gray Accent3: #666366</div>
+          <div class="mainColor w" id="sf-gray_a4">sf-gray Accent4: #4f4c4c</div>
+        </div>
+        <div class="col-1-6">
+          <div class="mainColor" id="sf-purple_l4">sf-purple Lighten4: #cec5de</div>
+          <div class="mainColor" id="sf-purple_l3">sf-purple Lighten3: #542988</div>
+          <div class="mainColor w" id="sf-purple_l2">sf-purple Lighten2: #542988</div>
+          <div class="mainColor w" id="sf-purple_l1">sf-purple Lighten1: #542988</div>
+          <div class="mainColor w" id="sf-purple">sf-purple: #542988</div>
+          <div class="mainColor w" id="sf-purple_d1">sf-purple: #542988</div>
+          <div class="mainColor w" id="sf-purple_d2">sf-purple: #542988</div>
+          <div class="mainColor w" id="sf-purple_d3">sf-purple: #542988</div>
+          <div class="mainColor w" id="sf-purple_a1">sf-purple: #542988</div>
+          <div class="mainColor w" id="sf-purple_a2">sf-purple: #542988</div>
+          <div class="mainColor w" id="sf-purple_a3">sf-purple: #542988</div>
+          <div class="mainColor w" id="sf-purple_a4">sf-purple: #542988</div>
+        </div>
+        <div class="col-1-6">
+          <div class="mainColor" id="sf-orange_l4">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_l3">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_l2">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_l1">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_d1">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_d2">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_d3">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_a1">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_a2">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_a3">sf-orange: #f3901d</div>
+          <div class="mainColor" id="sf-orange_a4">sf-orange: #f3901d</div>
+        </div>
+        <div class="col-1-6">
+          <div class="mainColor" id="sf-green_l4">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_l3">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_l2">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_l1">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_d1">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_d2">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_d3">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_a1">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_a2">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_a3">sf-green: #0d9e49</div>
+          <div class="mainColor" id="sf-green_a4">sf-green: #0d9e49</div>
+
+        </div>
+        <div class="col-1-6">
+          <div class="mainColor" id="sf-yellow_l4">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_l3">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_l2">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_l1">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_d1">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_d2">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_d3">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_a1">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_a2">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_a3">sf-yellow: #fdb924</div>
+          <div class="mainColor" id="sf-yellow_a4">sf-yellow: #fdb924</div>
+
+        </div>
+        <div class="col-1-6">
+          <div class="mainColor" id="sf-blue_l4">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_l3">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_l2">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_l1">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_d1">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_d2">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_d3">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_a1">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_a2">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_a3">sf-blue: #4994cd</div>
+          <div class="mainColor" id="sf-blue_a4">sf-blue: #4994cd</div>
+        </div>
+    </div>
+    <div class="col-1-1">
+      <h2 class="scheme col-1-1">Secondary Muted Colors</h2>
+          <div class="mainColor" id="sf-mediumGray">sf-mediumGray: #adb9c0</div>
+          <div class="mainColor" id="sf-grayViolet">sf-grayViolet: #a48da7</div>
+          <div class="mainColor" id="sf-brown">sf-brown: #c59468</div>
+          <div class="mainColor" id="sf-coolGreen">sf-coolGreen: #4ba5a7</div>
+          <div class="mainColor" id="sf-ochre">sf-ochre: #c2a268</div>
+          <div class="mainColor" id="sf-grayBeige">sf-grayBeige: #a89988</div>
+    </div>
+      <div class="col-1-1">
+        <h2 class="scheme">System Only Colors</h2>
+          <div class="col-1-1">
+            <div class="mainColor sys" id="sf-sysGreen">sf-sysGreen: #0eb034</div>
+            <div class="mainColor w sys" id="sf-sysRed">sf-sysRed: #a20102</div>
+            <div class="mainColor w sys" id="sf-sysDarkBlue">sf-sysDarkBlue: #003a65</div>
+            <div class="mainColor w sys" id="sf-sysBlue">sf-sysBlue: #0a70bc</div>
+            <div class="mainColor sys" id="sf-sysYellow1">sf-sysYellow1: #fdf8d7</div>
+            <div class="mainColor sys" id="sf-sysYellow2">sf-sysYellow2: #fff001</div>
+          </div>
+      </div>
+      <div class="col-1-1">
+        <h2 class="scheme col-1-1">Tertiary Mono Colors</h2>
+          <div class="col-1-1">
+            <div class="mainColor gray" id="sf-gray1">sf-gray1: #ededed</div>
+            <div class="mainColor gray" id="sf-gray2">sf-gray2: #dcdcdc</div>
+            <div class="mainColor gray" id="sf-gray3">sf-gray3: #c5c5c5</div>
+            <div class="mainColor gray" id="sf-gray4">sf-gray4: #ababab</div>
+            <div class="mainColor w  gray" id="sf-gray5">sf-gray5:#3f3f3f</div>
+          </div>
+      </div>
+      <div class="col-1-1">
+        <h2 class="scheme col-1-1">Mono Colors</h2>
+          <div class="col-1-1">
+            <div class="mainColor gray" id="sf-white">sf-white: #ffffff</div>
+            <div class="mainColor w  gray" id="sf-black">sf-black: #000000</div>
+          </div>
+      </div>
+      <div class="col-1-1" id="footerSection">
+        <ul id="footerLinks">
+          <li><a href="#">SFnet</a></li>
+          <li><a href="#">SF Branding Center</a></li>
+          <li><a href="#">Materialize Homepage</li>
+          <li><a href="#">.farmize Homepage</li>
+          <li><a href="#">Contact the developers</a></li>
+        </ul>
+      </div>
+  </div>
+</body>
+</html>
+
